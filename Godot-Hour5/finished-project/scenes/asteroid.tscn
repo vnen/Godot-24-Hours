@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/asteroid.gd" type="Script" id=1]
+[ext_resource path="res://sprites/asteroid1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/asteroid2.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 6.0
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[node name="asteroid" type="Area2D" groups=[
+"asteroid",
+]]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Visibility" ]
+
+[node name="hit_zone" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+_sections_unfolded = [ "Visibility" ]
+
+[connection signal="area_entered" from="." to="." method="_on_asteroid_area_entered"]
+
+
