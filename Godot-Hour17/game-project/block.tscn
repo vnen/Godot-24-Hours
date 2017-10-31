@@ -1,0 +1,203 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://block.gd" type="Script" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+
+size = Vector3( 1, 2, 1 )
+subdivide_width = 0
+subdivide_height = 0
+subdivide_depth = 0
+
+[sub_resource type="SpatialMaterial" id=2]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 0.742188, 0, 0, 1 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Albedo" ]
+
+[sub_resource type="BoxShape" id=3]
+
+extents = Vector3( 0.5, 1, 0.5 )
+
+[sub_resource type="BoxShape" id=4]
+
+extents = Vector3( 0.45, 0.1, 0.45 )
+
+[node name="Block" type="Spatial" groups=[
+"block",
+]]
+
+script = ExtResource( 1 )
+start_point = null
+
+[node name="RigidBody" type="RigidBody" parent="."]
+
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 2
+collision_mask = 7
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = false
+contacts_reported = 1
+contact_monitor = false
+sleeping = false
+can_sleep = false
+axis_lock = 0
+linear_velocity = Vector3( 0, 0, 0 )
+linear_damp = -1.0
+angular_velocity = Vector3( 0, 0, 0 )
+angular_damp = -1.0
+_sections_unfolded = [ "Angular", "Collision", "Linear", "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="RigidBody"]
+
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = SubResource( 2 )
+_sections_unfolded = [ "material" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+
+shape = SubResource( 3 )
+disabled = false
+
+[node name="Up" type="Area" parent="RigidBody"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 2
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody/Up"]
+
+shape = SubResource( 4 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="Down" type="Area" parent="RigidBody"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 2
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody/Down"]
+
+shape = SubResource( 4 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="GravityTimer" type="Timer" parent="."]
+
+process_mode = 0
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[node name="RespawnTimer" type="Timer" parent="."]
+
+process_mode = 0
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="GravityTimer" to="." method="zero_gravity"]
+
+[connection signal="timeout" from="RespawnTimer" to="." method="respawn"]
+
+

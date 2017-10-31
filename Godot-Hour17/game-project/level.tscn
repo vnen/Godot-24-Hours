@@ -1,0 +1,110 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://meshlib.meshlib" type="MeshLibrary" id=1]
+[ext_resource path="res://ending.gd" type="Script" id=2]
+[ext_resource path="res://outbounds.gd" type="Script" id=3]
+
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 0.45, 2, 0.45 )
+
+[node name="Level" type="Spatial"]
+
+[node name="GridMap" type="GridMap" parent="."]
+
+theme = ExtResource( 1 )
+cell_size = Vector3( 1, 0.1, 1 )
+cell_octant_size = 1
+cell_center_x = true
+cell_center_y = true
+cell_center_z = true
+cell_scale = 1.0
+data = {
+"cells": PoolIntArray(  )
+}
+_sections_unfolded = [ "Cell", "Pause", "Transform", "Visibility" ]
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 5, 0 )
+}
+
+[node name="Start" type="Position3D" parent="."]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Ending" type="Area" parent="."]
+
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 4
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ending"]
+
+shape = SubResource( 1 )
+disabled = false
+
+[node name="GravityTimer" type="Timer" parent="Ending"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = false
+
+[node name="Inbounds" type="Area" parent="."]
+
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 4
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Audio Bus", "Collision", "Pause", "Reverb Bus", "Transform" ]
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="Inbounds"]
+
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+depth = 15.0
+disabled = false
+polygon = PoolVector2Array(  )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="body_entered" from="Ending" to="Ending" method="_on_Ending_body_entered"]
+
+[connection signal="area_exited" from="Inbounds" to="Inbounds" method="_on_Inbounds_area_exited"]
+
+
