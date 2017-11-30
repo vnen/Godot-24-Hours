@@ -1,0 +1,147 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://number-grid.png" type="Texture" id=1]
+
+[sub_resource type="OccluderPolygon2D" id=4]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="NavigationPolygon" id=3]
+
+vertices = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 ) ]
+_sections_unfolded = [ "Resource" ]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Number1" type="Sprite" parent="."]
+
+position = Vector2( 32, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+region_filter_clip = true
+_sections_unfolded = [ "Region" ]
+
+[node name="Number2" type="Sprite" parent="."]
+
+position = Vector2( 96, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 64, 64 )
+region_filter_clip = true
+_sections_unfolded = [ "Region" ]
+
+[node name="Number3" type="Sprite" parent="."]
+
+position = Vector2( 160, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 0, 64, 64 )
+region_filter_clip = true
+_sections_unfolded = [ "Region" ]
+
+[node name="Number4" type="Sprite" parent="."]
+
+position = Vector2( 32, 96 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )
+region_filter_clip = true
+_sections_unfolded = [ "Region" ]
+
+[node name="Number5" type="Sprite" parent="."]
+
+position = Vector2( 96, 96 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 64, 64 )
+region_filter_clip = true
+_sections_unfolded = [ "Region" ]
+
+[node name="Number6" type="Sprite" parent="."]
+
+position = Vector2( 160, 96 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 64, 64, 64 )
+region_filter_clip = true
+_sections_unfolded = [ "Region" ]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Number6"]
+
+occluder = SubResource( 4 )
+light_mask = 1
+
+[node name="Number7" type="Sprite" parent="."]
+
+position = Vector2( 32, 160 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 128, 64, 64 )
+region_filter_clip = true
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Number7"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Number7/StaticBody2D"]
+
+shape = SubResource( 1 )
+
+[node name="Number8" type="Sprite" parent="."]
+
+position = Vector2( 96, 160 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 128, 64, 64 )
+region_filter_clip = true
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Number8"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Number8/StaticBody2D"]
+
+build_mode = 0
+polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[node name="Number9" type="Sprite" parent="."]
+
+position = Vector2( 160, 160 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 128, 64, 64 )
+region_filter_clip = true
+_sections_unfolded = [ "Region" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Number9"]
+
+navpoly = SubResource( 3 )
+enabled = true
+
+

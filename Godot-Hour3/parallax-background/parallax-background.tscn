@@ -1,0 +1,289 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ship.png" type="Texture" id=1]
+[ext_resource path="res://ship.gd" type="Script" id=2]
+[ext_resource path="res://bg_gradient.png" type="Texture" id=3]
+[ext_resource path="res://small_star.png" type="Texture" id=4]
+[ext_resource path="res://big_star.png" type="Texture" id=5]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ship" type="Sprite" parent="."]
+
+editor/display_folded = true
+position = Vector2( 0, 300 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+speed = 500
+
+[node name="Camera2D" type="Camera2D" parent="Ship"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+editor/display_folded = true
+motion_scale = Vector2( 0.2, 0.2 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1024, 600 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+scale = Vector2( 128, 1 )
+texture = ExtResource( 3 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="small_star" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 68.5556, 125.31 )
+texture = ExtResource( 4 )
+
+[node name="small_star2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 129.94, 217.707 )
+texture = ExtResource( 4 )
+
+[node name="small_star3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 315.648, 410.745 )
+texture = ExtResource( 4 )
+
+[node name="small_star4" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 313.204, 175.353 )
+texture = ExtResource( 4 )
+
+[node name="small_star5" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 113.65, 437.624 )
+texture = ExtResource( 4 )
+
+[node name="small_star6" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 264.334, 306.488 )
+texture = ExtResource( 4 )
+
+[node name="small_star7" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 633.305, 131.369 )
+texture = ExtResource( 4 )
+
+[node name="small_star8" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 538.822, 56.4346 )
+texture = ExtResource( 4 )
+
+[node name="small_star9" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 498.912, 226.666 )
+texture = ExtResource( 4 )
+
+[node name="small_star10" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 344.155, 46.6605 )
+texture = ExtResource( 4 )
+
+[node name="small_star11" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 821.456, 49.9186 )
+texture = ExtResource( 4 )
+
+[node name="small_star12" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 809.238, 140.329 )
+texture = ExtResource( 4 )
+
+[node name="small_star13" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 945.261, 158.248 )
+texture = ExtResource( 4 )
+
+[node name="small_star14" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 731.046, 327.665 )
+texture = ExtResource( 4 )
+
+[node name="small_star15" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 661.813, 240.513 )
+texture = ExtResource( 4 )
+
+[node name="small_star16" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 448.412, 443.325 )
+texture = ExtResource( 4 )
+
+[node name="small_star17" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 630.047, 418.075 )
+texture = ExtResource( 4 )
+
+[node name="small_star18" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 144.601, 558.17 )
+texture = ExtResource( 4 )
+
+[node name="small_star19" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 549.411, 568.759 )
+texture = ExtResource( 4 )
+
+[node name="small_star20" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 910.237, 480.792 )
+texture = ExtResource( 4 )
+
+[node name="small_star21" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 907.794, 307.303 )
+texture = ExtResource( 4 )
+
+[node name="small_star22" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 788.061, 222.594 )
+texture = ExtResource( 4 )
+
+[node name="small_star23" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 788.876, 536.993 )
+texture = ExtResource( 4 )
+
+[node name="small_star24" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 394.655, 293.456 )
+texture = ExtResource( 4 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+editor/display_folded = true
+motion_scale = Vector2( 0.5, 0.5 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1024, 600 )
+_sections_unfolded = [ "Motion" ]
+
+[node name="big_star" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 75.3684, 104.49 )
+texture = ExtResource( 5 )
+
+[node name="big_star2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 174.738, 238.07 )
+texture = ExtResource( 5 )
+
+[node name="big_star3" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 876.843, 486.494 )
+texture = ExtResource( 5 )
+
+[node name="big_star4" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 379.994, 93.0874 )
+texture = ExtResource( 5 )
+
+[node name="big_star5" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 217.092, 425.406 )
+texture = ExtResource( 5 )
+
+[node name="big_star6" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 120.981, 545.138 )
+texture = ExtResource( 5 )
+
+[node name="big_star7" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 775.029, 291.827 )
+texture = ExtResource( 5 )
+
+[node name="big_star8" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 726.159, 52.3621 )
+texture = ExtResource( 5 )
+
+[node name="big_star10" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 379.994, 93.0874 )
+texture = ExtResource( 5 )
+
+[node name="big_star9" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 217.092, 425.406 )
+texture = ExtResource( 5 )
+
+[node name="big_star11" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 120.981, 545.138 )
+texture = ExtResource( 5 )
+
+[node name="big_star12" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 775.029, 291.827 )
+texture = ExtResource( 5 )
+
+[node name="big_star13" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 726.159, 52.3621 )
+texture = ExtResource( 5 )
+
+[node name="big_star14" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 525.79, 436.809 )
+texture = ExtResource( 5 )
+
+[node name="big_star15" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 368.591, 495.453 )
+texture = ExtResource( 5 )
+
+[node name="big_star16" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 391.397, 300.786 )
+texture = ExtResource( 5 )
+
+[node name="big_star17" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 906.165, 137.071 )
+texture = ExtResource( 5 )
+
+[node name="big_star18" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+
+position = Vector2( 603.983, 165.578 )
+texture = ExtResource( 5 )
+
+

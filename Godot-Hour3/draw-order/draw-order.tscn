@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://numbers/number-1.png" type="Texture" id=1]
+[ext_resource path="res://numbers/number-2.png" type="Texture" id=2]
+[ext_resource path="res://numbers/number-3.png" type="Texture" id=3]
+[ext_resource path="res://numbers/number-4.png" type="Texture" id=4]
+[ext_resource path="res://numbers/number-5.png" type="Texture" id=5]
+[ext_resource path="res://numbers/number-6.png" type="Texture" id=6]
+[ext_resource path="res://numbers/number-7.png" type="Texture" id=7]
+[ext_resource path="res://numbers/number-8.png" type="Texture" id=8]
+
+[node name="1" type="Sprite"]
+
+position = Vector2( 64, 64 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="2" type="Sprite" parent="."]
+
+position = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="3" type="Sprite" parent="2"]
+
+position = Vector2( 32, 32 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="4" type="Sprite" parent="."]
+
+position = Vector2( 96, 96 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="5" type="Sprite" parent="4"]
+
+position = Vector2( 32, 32 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="6" type="Sprite" parent="4/5"]
+
+position = Vector2( 32, 32 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="7" type="Sprite" parent="."]
+
+position = Vector2( 192, 192 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="8" type="Sprite" parent="7"]
+
+position = Vector2( 32, 32 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Transform" ]
+
+
