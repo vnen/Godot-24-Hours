@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/bomb.gd" type="Script" id=1]
+[ext_resource path="res://sprites/bomb.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 31.0
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "default"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 2 ]
+}
+
+[node name="Bomb" type="StaticBody2D"]
+
+z = 1
+z_as_relative = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Z" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="."]
+
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 3
+frame = 2
+_sections_unfolded = [ "Animation", "Offset", "Transform" ]
+
+[node name="EnableCollisionTimer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/default = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "default"
+_sections_unfolded = [ "Playback Options", "playback" ]
+
+[connection signal="timeout" from="EnableCollisionTimer" to="." method="_on_EnableCollisionTimer_timeout"]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+
+

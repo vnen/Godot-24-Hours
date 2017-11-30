@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/bricks.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[node name="Tileset" type="Node2D"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="SolidBrick" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+hframes = 3
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SolidBrick"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SolidBrick/StaticBody2D"]
+
+visible = false
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="BreakableBrick" type="Sprite" parent="."]
+
+position = Vector2( 64, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 1
+_sections_unfolded = [ "Animation", "Offset", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BreakableBrick"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakableBrick/StaticBody2D"]
+
+visible = false
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="BackgroundBrick" type="Sprite" parent="."]
+
+position = Vector2( 128, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 2
+_sections_unfolded = [ "Animation", "Offset", "Transform" ]
+
+
