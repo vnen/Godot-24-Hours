@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/tileset.res" type="TileSet" id=1]
+[ext_resource path="res://scripts/tilemap.gd" type="Script" id=2]
+[ext_resource path="res://fonts/cave-story.tres" type="DynamicFont" id=3]
+
+[node name="Arena" type="Node2D"]
+
+position = Vector2( 0, -30 )
+_sections_unfolded = [ "Transform", "Z" ]
+
+[node name="TileMap" type="TileMap" parent="."]
+
+z_as_relative = false
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = true
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+tile_data = PoolIntArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 65536, 0, 65537, 2, 65538, 2, 65539, 2, 65540, 0, 65541, 2, 65542, 2, 65543, 2, 65544, 1, 65545, 1, 65546, 2, 65547, 2, 65548, 1, 65549, 1, 65550, 1, 65551, 0, 131072, 0, 131073, 1, 131074, 0, 131075, 2, 131076, 0, 131077, 2, 131078, 0, 131079, 2, 131080, 0, 131081, 0, 131082, 0, 131083, 2, 131084, 0, 131085, 0, 131086, 1, 131087, 0, 196608, 0, 196609, 1, 196610, 1, 196611, 2, 196612, 1, 196613, 1, 196614, 0, 196615, 2, 196616, 0, 196617, 2, 196618, 2, 196619, 1, 196620, 1, 196621, 0, 196622, 1, 196623, 0, 262144, 0, 262145, 1, 262146, 0, 262147, 1, 262148, 0, 262149, 0, 262150, 0, 262151, 1, 262152, 1, 262153, 1, 262154, 0, 262155, 0, 262156, 1, 262157, 2, 262158, 1, 262159, 0, 327680, 0, 327681, 1, 327682, 1, 327683, 2, 327684, 1, 327685, 1, 327686, 2, 327687, 2, 327688, 0, 327689, 1, 327690, 0, 327691, 0, 327692, 2, 327693, 2, 327694, 2, 327695, 0, 393216, 0, 393217, 0, 393218, 0, 393219, 2, 393220, 0, 393221, 1, 393222, 0, 393223, 0, 393224, 0, 393225, 2, 393226, 2, 393227, 1, 393228, 2, 393229, 0, 393230, 2, 393231, 0, 458752, 0, 458753, 2, 458754, 2, 458755, 1, 458756, 0, 458757, 2, 458758, 1, 458759, 2, 458760, 2, 458761, 2, 458762, 0, 458763, 1, 458764, 0, 458765, 0, 458766, 1, 458767, 0, 524288, 0, 524289, 2, 524290, 0, 524291, 1, 524292, 2, 524293, 2, 524294, 1, 524295, 1, 524296, 1, 524297, 2, 524298, 0, 524299, 2, 524300, 2, 524301, 1, 524302, 1, 524303, 0, 589824, 0, 589825, 0, 589826, 0, 589827, 0, 589828, 0, 589829, 0, 589830, 0, 589831, 0, 589832, 0, 589833, 0, 589834, 0, 589835, 0, 589836, 0, 589837, 0, 589838, 0, 589839, 0 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Cell", "Collision", "Transform", "Z" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SpawnPositions" type="Node2D" parent="."]
+
+visible = false
+
+[node name="0" type="Position2D" parent="SpawnPositions"]
+
+position = Vector2( 96, 96 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="1" type="Position2D" parent="SpawnPositions"]
+
+position = Vector2( 928, 352 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="2" type="Position2D" parent="SpawnPositions"]
+
+position = Vector2( 352, 544 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="3" type="Position2D" parent="SpawnPositions"]
+
+position = Vector2( 736, 96 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="4" type="Position2D" parent="SpawnPositions"]
+
+position = Vector2( 96, 544 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ScoresBoard" type="Label" parent="."]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 833.0
+margin_top = 38.0
+margin_right = 993.0
+margin_bottom = 326.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Players" type="Node2D" parent="."]
+
+

@@ -1,0 +1,341 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/lobby.gd" type="Script" id=1]
+[ext_resource path="res://fonts/cave-story.tres" type="DynamicFont" id=2]
+
+[node name="Lobby" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="PanelTitleScreen" type="Panel" parent="."]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1020.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Focus", "Rect" ]
+
+[node name="LabelTitle" type="Label" parent="PanelTitleScreen"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 250.0
+margin_top = 20.0
+margin_right = 475.0
+margin_bottom = 45.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "Bomberman !"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "custom_constants", "custom_fonts" ]
+
+[node name="LabelAddress" type="Label" parent="PanelTitleScreen"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 300.0
+margin_top = 160.0
+margin_right = 379.0
+margin_bottom = 181.0
+rect_rotation = 0.0873362
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "Address"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="JoinAddress" type="LineEdit" parent="PanelTitleScreen"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 290.0
+margin_top = 190.0
+margin_right = 436.0
+margin_bottom = 221.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 2 )
+text = "127.0.0.1"
+expand_to_len = false
+focus_mode = 2
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="LabelPlayerName" type="Label" parent="PanelTitleScreen"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 212.0
+margin_top = 98.0
+margin_right = 264.0
+margin_bottom = 119.0
+rect_rotation = 0.0873362
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "Name"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="PlayerName" type="LineEdit" parent="PanelTitleScreen"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 274.0
+margin_top = 94.0
+margin_right = 420.0
+margin_bottom = 125.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 2 )
+text = "Reduz"
+expand_to_len = false
+focus_mode = 2
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+_sections_unfolded = [ "Visibility", "custom_fonts" ]
+
+[node name="ButtonHost" type="Button" parent="PanelTitleScreen"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 210.0
+margin_top = 250.0
+margin_right = 280.0
+margin_bottom = 300.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "host"
+flat = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="ButtonJoin" type="Button" parent="PanelTitleScreen"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 210.0
+margin_top = 180.0
+margin_right = 280.0
+margin_bottom = 230.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "join"
+flat = false
+_sections_unfolded = [ "Size Flags", "custom_fonts" ]
+
+[node name="LabelStatus" type="Label" parent="PanelTitleScreen"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 300.0
+margin_top = 250.0
+margin_right = 590.0
+margin_bottom = 300.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Material", "Visibility", "custom_fonts" ]
+
+[node name="PanelWaitPlayers" type="Panel" parent="."]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1020.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Focus", "Rect" ]
+
+[node name="LabelTitle" type="Label" parent="PanelWaitPlayers"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 290.0
+margin_top = 20.0
+margin_right = 515.0
+margin_bottom = 45.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "Waiting for players..."
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "custom_constants", "custom_fonts" ]
+
+[node name="LabelPlayerList" type="Label" parent="PanelWaitPlayers"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 427.0
+margin_top = 119.0
+margin_right = 596.0
+margin_bottom = 324.0
+rect_rotation = 0.0873362
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="LabelPlayerCount" type="Label" parent="PanelWaitPlayers"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 438.0
+margin_top = 76.0
+margin_right = 562.0
+margin_bottom = 102.0
+rect_rotation = 0.0873362
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "0/4"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="ButtonStart" type="Button" parent="PanelWaitPlayers"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 470.0
+margin_top = 340.0
+margin_right = 540.0
+margin_bottom = 390.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Start"
+flat = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[connection signal="pressed" from="PanelTitleScreen/ButtonHost" to="." method="_on_ButtonHost_pressed"]
+
+[connection signal="pressed" from="PanelTitleScreen/ButtonJoin" to="." method="_on_ButtonJoin_pressed"]
+
+[connection signal="pressed" from="PanelWaitPlayers/ButtonStart" to="." method="_on_ButtonStart_pressed"]
+
+
