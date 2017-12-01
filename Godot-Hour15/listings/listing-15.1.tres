@@ -1,0 +1,24 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+
+code = "shader_type spatial;
+render_mode cull_disabled, diffuse_toon;
+
+void vertex() {
+	// Vertex Processing
+	VERTEX.x += sin(TIME);
+	VERTEX.y += cos(TIME);
+}
+
+void fragment() {
+	// Fragment processing
+	ALBEDO.r = 1.0;
+}
+
+void light() {
+	// Light processing
+	DIFFUSE_LIGHT = ALBEDO * ATTENUATION;
+}
+"
+

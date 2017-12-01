@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="SphereMesh" id=1]
+
+radius = 1.0
+height = 2.0
+radial_segments = 64
+rings = 32
+is_hemisphere = false
+
+[sub_resource type="Shader" id=2]
+
+code = "shader_type spatial;
+render_mode cull_disabled;
+
+void vertex() {
+	VERTEX.z *= sin(TIME);
+}
+"
+
+[sub_resource type="ShaderMaterial" id=3]
+
+render_priority = 0
+shader = SubResource( 2 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = SubResource( 3 )
+_sections_unfolded = [ "material" ]
+
+[node name="Camera" type="Camera" parent="."]
+
+transform = Transform( 0.877583, 0.229849, -0.420736, 0, 0.877583, 0.479426, 0.479426, -0.420736, 0.770151, -1.68294, 1.9177, 3.0806 )
+projection = 0
+fov = 70.0
+near = 0.05
+far = 100.0
+keep_aspect = 1
+current = false
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler/tracking = 0
+
+
