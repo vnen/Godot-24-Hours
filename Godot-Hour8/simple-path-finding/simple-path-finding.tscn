@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Navigation2D
+
+var start_point = Vector2()
+var end_point = Vector2()
+var path = []
+
+func _input(event):
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == BUTTON_LEFT:
+			start_point = event.position
+		elif event.button_index == BUTTON_RIGHT:
+			end_point = event.position
+
+func _process(delta):
+	path = get_simple_path(start_point, end_point, false)
+	update()
+
+func _draw():
+	for point in path:
+		draw_circle(point, 10, Color(1, 1, 1))
+	draw_polyline(path, Color(1, 0, 0), 3.0, true)"
+
+[sub_resource type="NavigationPolygon" id=2]
+
+vertices = PoolVector2Array( 592.385, 328.734, 594.541, 308.942, 617.87, 406.296, 598.613, 401.796, 394.987, 254.371, 408.451, 183.582, 417.316, 357.543, 384.075, 350.895, 578.251, 122.421, 431.72, 91.615, 645.04, 117.534, 633.382, 133.72, 425.123, 104.501, 386.291, 229.011, 385.213, 181.065, 457.704, 522.343, 480.51, 529.674, 112.607, 530.396, 240.981, 523.593, 371.886, 306.573, 369.67, 338.706, 392.939, 122.64, 360.806, 184.69, 305.404, 417.377, 297.246, 408.312, 472.717, 152.557, 553.815, 251.113, 506.574, 148.485, 513.905, 157.444, 493.542, 133.009, 730.563, 358.627, 709.837, 349.787, 624.677, 417.272, 323.31, 109.388, 330.889, 127.072, 585.581, 352.111, 474.933, 502.695, 553.815, 406.683, 248.422, 491.887, 228.013, 497.908, 215.422, 458.239, 167.539, 432.68, 137.603, 437.634, 130.332, 423.945, 543.227, 425.417, 457.704, 510.125, 258.867, 490.507, 259.746, 507.416, 247.775, 462.769, 229.642, 428.675, 355.266, 313.222, 324.241, 368.623, 327.565, 264.468, 291, 251.172, 130.272, 519.9, 367.454, 216.823, 262.222, 458.812, 247.561, 431.118, 209.279, 430.304, 147.377, 345.595, 180.156, 401.621, 137.45, 364.738, 133.53, 326.047, 186.473, 190.025, 240.03, 173.609, 201.249, 211.283, 157.186, 423.621, 166.925, 300.797, 170.998, 323.604 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 8, 9, 10, 11 ), PoolIntArray( 9, 8, 12 ), PoolIntArray( 5, 4, 13, 14 ), PoolIntArray( 15, 16, 17, 18 ), PoolIntArray( 19, 13, 4, 20 ), PoolIntArray( 21, 12, 14, 22 ), PoolIntArray( 7, 6, 23, 24 ), PoolIntArray( 1, 0, 25, 26 ), PoolIntArray( 27, 28, 26, 25, 29 ), PoolIntArray( 10, 30, 31, 11 ), PoolIntArray( 8, 11, 28, 27 ), PoolIntArray( 31, 30, 32, 2 ), PoolIntArray( 33, 9, 12, 21, 34 ), PoolIntArray( 14, 29, 25, 5 ), PoolIntArray( 0, 3, 35 ), PoolIntArray( 36, 0, 35, 37 ), PoolIntArray( 38, 18, 39, 40 ), PoolIntArray( 41, 40, 39, 42, 43 ), PoolIntArray( 3, 2, 32, 44, 37 ), PoolIntArray( 36, 37, 44, 16 ), PoolIntArray( 36, 16, 15, 45 ), PoolIntArray( 46, 36, 45, 47 ), PoolIntArray( 46, 47, 48 ), PoolIntArray( 49, 50, 19, 20, 51 ), PoolIntArray( 52, 19, 50, 53 ), PoolIntArray( 39, 18, 17, 54 ), PoolIntArray( 14, 13, 55, 22 ), PoolIntArray( 53, 22, 55, 52 ), PoolIntArray( 56, 24, 23, 46 ), PoolIntArray( 56, 46, 48, 57 ), PoolIntArray( 49, 51, 57 ), PoolIntArray( 57, 48, 58, 49 ), PoolIntArray( 59, 49, 58, 60 ), PoolIntArray( 59, 60, 61, 62 ), PoolIntArray( 63, 33, 34, 64 ), PoolIntArray( 63, 64, 53, 65 ), PoolIntArray( 42, 54, 17, 43 ), PoolIntArray( 43, 66, 41 ), PoolIntArray( 53, 50, 65 ), PoolIntArray( 67, 63, 65, 68 ), PoolIntArray( 62, 67, 68, 59 ), PoolIntArray( 17, 62, 61, 43 ), PoolIntArray( 40, 41, 40 ) ]
+outlines = [ PoolVector2Array( 133.53, 326.047, 112.607, 530.396, 480.51, 529.674, 543.227, 425.417, 624.677, 417.272, 730.563, 358.627, 645.04, 117.534, 431.72, 91.615, 323.31, 109.388, 186.473, 190.025, 166.925, 300.797 ), PoolVector2Array( 201.249, 211.283, 170.998, 323.604, 147.377, 345.595, 229.642, 428.675, 355.266, 313.222 ), PoolVector2Array( 408.451, 183.582, 417.316, 357.543, 305.404, 417.377, 258.867, 490.507, 474.933, 502.695, 592.385, 328.734, 472.717, 152.557 ), PoolVector2Array( 513.905, 157.444, 633.382, 133.72, 709.837, 349.787, 617.87, 406.296, 594.541, 308.942, 553.815, 251.113 ), PoolVector2Array( 330.889, 127.072, 240.03, 173.609, 291, 251.172, 360.806, 184.69, 392.939, 122.64 ), PoolVector2Array( 367.454, 216.823, 327.565, 264.468, 371.886, 306.573, 386.291, 229.011 ), PoolVector2Array( 394.987, 254.371, 369.67, 338.706, 324.241, 368.623, 247.561, 431.118, 262.222, 458.812, 297.246, 408.312, 384.075, 350.895 ), PoolVector2Array( 137.603, 437.634, 228.013, 497.908, 130.272, 519.9 ), PoolVector2Array( 157.186, 423.621, 167.539, 432.68, 215.422, 458.239, 215.422, 458.239, 248.422, 491.887, 240.981, 523.593, 457.704, 522.343, 457.704, 510.125, 259.746, 507.416, 247.775, 462.769, 209.279, 430.304, 180.156, 401.621, 137.45, 364.738, 130.332, 423.945 ), PoolVector2Array( 425.123, 104.501, 385.213, 181.065, 493.542, 133.009, 506.574, 148.485, 578.251, 122.421 ), PoolVector2Array( 585.581, 352.111, 553.815, 406.683, 598.613, 401.796 ) ]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+script = SubResource( 1 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+
+navpoly = SubResource( 2 )
+enabled = true
+
+
