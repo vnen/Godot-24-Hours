@@ -1,0 +1,11 @@
+config_version=3
+
+[application]
+
+config/name="Hour10-Animation"
+run/main_scene="res://Animation.tscn"
+config/icon="res://icon.png"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

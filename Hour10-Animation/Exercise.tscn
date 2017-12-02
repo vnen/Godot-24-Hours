@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Exercise.gd" type="Script" id=2]
+[ext_resource path="res://MoveLeft-Exercise.tres" type="Animation" id=3]
+[ext_resource path="res://MoveRight-Exercise.tres" type="Animation" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+position = Vector2( -200, 0 )
+rotation = -1.5708
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/MoveLeft = ExtResource( 3 )
+anims/MoveRight = ExtResource( 4 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="AnimationTreePlayer" type="AnimationTreePlayer" parent="Sprite"]
+
+playback_process_mode = 1
+base_path = NodePath("..")
+master_player = NodePath("../AnimationPlayer")
+data = {
+"active": true,
+"connections": [ "anim", "transition", 0, "anim 2", "transition", 1, "transition", "out", 0 ],
+"master": NodePath("../AnimationPlayer"),
+"nodes": [ {
+"id": "transition",
+"pos": Vector2( 225, 94 ),
+"transitions": [ {
+"auto_advance": false
+}, {
+"auto_advance": false
+} ],
+"type": "transition",
+"xfade": 0.25
+}, {
+"filter": [  ],
+"from": "MoveLeft",
+"id": "anim",
+"pos": Vector2( 50, 50 ),
+"type": "animation"
+}, {
+"id": "out",
+"pos": Vector2( 372, 119 ),
+"type": "output"
+}, {
+"filter": [  ],
+"from": "MoveRight",
+"id": "anim 2",
+"pos": Vector2( 58, 154 ),
+"type": "animation"
+} ]
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+position = Vector2( -205.055, -8.20218 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+
