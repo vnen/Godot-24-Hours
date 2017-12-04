@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Animation.gd" type="Script" id=2]
+[ext_resource path="res://Running.tres" type="Animation" id=3]
+[ext_resource path="res://Walking.tres" type="Animation" id=4]
+
+[node name="Sprite" type="Sprite"]
+
+position = Vector2( 446.391, 174.512 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Animation" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/Jumping = ExtResource( 3 )
+anims/walking = ExtResource( 4 )
+next/walking = "Running"
+playback/active = true
+playback/speed = 1.0
+blend_times = [ "Jumping", "Jumping", 0.2, "Jumping", "walking", 0.2 ]
+autoplay = "walking"
+_sections_unfolded = [ "Playback", "playback" ]
+
+

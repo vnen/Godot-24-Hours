@@ -1,0 +1,127 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="Curve" id=1]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.232757, 0.360352 ), 0.0, 0.0, 0, 0, Vector2( 0.616583, 0.682617 ), -8.09358, -8.09358, 0, 0, Vector2( 1, 0.177734 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+
+width = 2048
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 15.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 2 )
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+
+[sub_resource type="CubeMesh" id=4]
+
+size = Vector3( 2, 2, 2 )
+subdivide_width = 0
+subdivide_height = 0
+subdivide_depth = 0
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Particles" type="Particles" parent="."]
+
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+visible_in_all_rooms = false
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 50
+lifetime = 20.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = Rect3( -4.76657, -3.82372, -4, 9.53314, 7.69724, 8 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 3 )
+draw_passes = 1
+draw_pass_1 = SubResource( 4 )
+_sections_unfolded = [ "Draw Passes", "Drawing", "Process Material", "Time" ]
+
+[node name="OmniLight" type="OmniLight" parent="."]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.75409, -1.04442 )
+layers = 1
+light_color = Color( 0.933594, 0.805954, 0.805954, 1 )
+light_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_cull_mask = -1
+shadow_enabled = true
+shadow_color = Color( 0.113281, 0.0986786, 0.0986786, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_max_distance = 0.0
+editor_only = false
+omni_range = 60.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+
+[node name="Camera" type="Camera" parent="."]
+
+transform = Transform( 1, 0, 0, 0, 0.904654, 0.426148, 0, -0.426148, 0.904654, 0, 4.14001, 12.3671 )
+projection = 0
+fov = 65.0
+near = 0.1
+far = 100.0
+keep_aspect = 1
+current = false
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler/tracking = 0
+
+
