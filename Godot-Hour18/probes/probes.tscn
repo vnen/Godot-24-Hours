@@ -1,0 +1,40 @@
+[gd_scene format=2]
+
+[node name="Spatial" type="Spatial"]
+
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="GIProbe" type="GIProbe" parent="."]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.635729, 11.6714, 1.09051 )
+layers = 1
+subdiv = 1
+extents = Vector3( 9.07849, 10, 15.4579 )
+dynamic_range = 4
+energy = 1.0
+propagation = 0.7
+bias = 1.5
+normal_bias = 0.0
+interior = false
+compress = false
+data = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0414109, 0.700959, -0.823109 )
+layers = 1
+update_mode = 0
+intensity = 1.0
+max_distance = 0.0
+extents = Vector3( 2.42254, 1.37873, 0.473255 )
+origin_offset = Vector3( 0, 0, -0.463255 )
+box_projection = false
+enable_shadows = false
+cull_mask = 1048575
+interior_enable = false
+interior_ambient_color = Color( 0, 0, 0, 1 )
+interior_ambient_energy = 1.0
+interior_ambient_contrib = 0.0
+
+
