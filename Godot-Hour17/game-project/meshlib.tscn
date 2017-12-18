@@ -10,6 +10,7 @@ flags_no_depth_test = false
 flags_use_point_size = false
 flags_world_triplanar = false
 flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
 vertex_color_use_as_albedo = false
 vertex_color_is_srgb = false
 params_diffuse_mode = 1
@@ -63,6 +64,7 @@ flags_no_depth_test = false
 flags_use_point_size = false
 flags_world_triplanar = false
 flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
 vertex_color_use_as_albedo = false
 vertex_color_is_srgb = false
 params_diffuse_mode = 1
@@ -116,9 +118,9 @@ subdivide_depth = 0
 
 extents = Vector3( 0.45, 0.05, 0.45 )
 
-[node name="Spatial" type="Spatial"]
+[node name="Spatial" type="Spatial" index="0"]
 
-[node name="floor" type="MeshInstance" parent="."]
+[node name="floor" type="MeshInstance" parent="." index="0"]
 
 layers = 1
 material_override = null
@@ -134,7 +136,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "material" ]
 
-[node name="StaticBody" type="StaticBody" parent="floor"]
+[node name="StaticBody" type="StaticBody" parent="floor" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -145,7 +147,7 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="floor/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="floor/StaticBody" index="0"]
 
 shape = SubResource( 4 )
 disabled = false

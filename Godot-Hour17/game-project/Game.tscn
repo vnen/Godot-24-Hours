@@ -103,23 +103,25 @@ adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 _sections_unfolded = [ "Ambient Light", "Background" ]
 
-[node name="Spatial" type="Spatial"]
+[node name="Spatial" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
 
 environment = SubResource( 2 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="1"]
 
 transform = Transform( 0.623013, -0.733525, 0.271654, 0.321394, 0.55667, 0.766044, -0.713134, -0.389948, 0.582563, 0, 0, 0 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
 light_energy = 1.0
+light_indirect_energy = 1.0
 light_negative = false
 light_specular = 0.5
+light_bake_mode = 1
 light_cull_mask = -1
 shadow_enabled = true
 shadow_color = Color( 0.472656, 0.472656, 0.472656, 1 )
@@ -138,34 +140,45 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Directional Shadow", "Light", "Shadow", "Transform" ]
 
-[node name="Block" parent="." instance=ExtResource( 2 )]
+[node name="Block" parent="." index="2" instance=ExtResource( 2 )]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2, -4 )
 _sections_unfolded = [ "Pause", "Transform" ]
 start_point = NodePath("../Level/Start")
 
-[node name="LevelLoad" type="Timer" parent="."]
+[node name="RigidBody" parent="Block" index="0"]
+
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+
+[node name="LevelLoad" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = false
 
-[node name="Camera" type="Camera" parent="."]
+[node name="Camera" type="Camera" parent="." index="4"]
 
 transform = Transform( 0.939757, 0.144294, -0.309895, 0, 0.906547, 0.422106, 0.341841, -0.396678, 0.851934, -8.54277, 3.78781, 5.87497 )
-projection = 1
-size = 10.0
-near = 0.1
-far = 100.0
 keep_aspect = 1
-current = true
+vaspect = true
 cull_mask = 1048575
 environment = null
 h_offset = 0.0
 v_offset = 0.0
-doppler/tracking = 0
+doppler_tracking = 0
+projection = 1
+current = true
+fov = 70.0
+size = 10.0
+near = 0.1
+far = 100.0
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="won" from="Block" to="." method="_on_Block_won"]

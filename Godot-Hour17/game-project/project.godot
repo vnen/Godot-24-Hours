@@ -53,6 +53,7 @@ down=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","
 
 [physics]
 
+3d/physics_engine="GodotPhysics"
 3d/default_gravity=50.0
 
 [rendering]

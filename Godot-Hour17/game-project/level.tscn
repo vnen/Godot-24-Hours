@@ -8,9 +8,9 @@
 
 extents = Vector3( 0.45, 2, 0.45 )
 
-[node name="Level" type="Spatial"]
+[node name="Level" type="Spatial" index="0"]
 
-[node name="GridMap" type="GridMap" parent="."]
+[node name="GridMap" type="GridMap" parent="." index="0"]
 
 theme = ExtResource( 1 )
 cell_size = Vector3( 1, 0.1, 1 )
@@ -28,12 +28,12 @@ __meta__ = {
 "_editor_floor_": Vector3( 0, 5, 0 )
 }
 
-[node name="Start" type="Position3D" parent="."]
+[node name="Start" type="Position3D" parent="." index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Ending" type="Area" parent="."]
+[node name="Ending" type="Area" parent="." index="2"]
 
 input_ray_pickable = false
 input_capture_on_drag = false
@@ -58,19 +58,19 @@ reverb_bus_uniformity = 0.0
 script = ExtResource( 2 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="Ending"]
+[node name="CollisionShape" type="CollisionShape" parent="Ending" index="0"]
 
 shape = SubResource( 1 )
 disabled = false
 
-[node name="GravityTimer" type="Timer" parent="Ending"]
+[node name="GravityTimer" type="Timer" parent="Ending" index="1"]
 
 process_mode = 1
 wait_time = 0.5
 one_shot = false
 autostart = false
 
-[node name="Inbounds" type="Area" parent="."]
+[node name="Inbounds" type="Area" parent="." index="3"]
 
 input_ray_pickable = false
 input_capture_on_drag = false
@@ -95,7 +95,7 @@ reverb_bus_uniformity = 0.0
 script = ExtResource( 3 )
 _sections_unfolded = [ "Audio Bus", "Collision", "Pause", "Reverb Bus", "Transform" ]
 
-[node name="CollisionPolygon" type="CollisionPolygon" parent="Inbounds"]
+[node name="CollisionPolygon" type="CollisionPolygon" parent="Inbounds" index="0"]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
 depth = 15.0

@@ -19,6 +19,7 @@ flags_no_depth_test = false
 flags_use_point_size = false
 flags_world_triplanar = false
 flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
 vertex_color_use_as_albedo = false
 vertex_color_is_srgb = false
 params_diffuse_mode = 1
@@ -68,14 +69,14 @@ extents = Vector3( 0.5, 1, 0.5 )
 
 extents = Vector3( 0.45, 0.1, 0.45 )
 
-[node name="Block" type="Spatial" groups=[
+[node name="Block" type="Spatial" index="0" groups=[
 "block",
 ]]
 
 script = ExtResource( 1 )
 start_point = null
 
-[node name="RigidBody" type="RigidBody" parent="."]
+[node name="RigidBody" type="RigidBody" parent="." index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -92,14 +93,19 @@ contacts_reported = 1
 contact_monitor = false
 sleeping = false
 can_sleep = false
-axis_lock = 0
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
 linear_velocity = Vector3( 0, 0, 0 )
 linear_damp = -1.0
 angular_velocity = Vector3( 0, 0, 0 )
 angular_damp = -1.0
 _sections_unfolded = [ "Angular", "Collision", "Linear", "Transform" ]
 
-[node name="MeshInstance" type="MeshInstance" parent="RigidBody"]
+[node name="MeshInstance" type="MeshInstance" parent="RigidBody" index="0"]
 
 layers = 1
 material_override = null
@@ -115,12 +121,12 @@ skeleton = NodePath("..")
 material/0 = SubResource( 2 )
 _sections_unfolded = [ "material" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody" index="1"]
 
 shape = SubResource( 3 )
 disabled = false
 
-[node name="Up" type="Area" parent="RigidBody"]
+[node name="Up" type="Area" parent="RigidBody" index="2"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 input_ray_pickable = false
@@ -145,13 +151,13 @@ reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="RigidBody/Up"]
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody/Up" index="0"]
 
 shape = SubResource( 4 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
-[node name="Down" type="Area" parent="RigidBody"]
+[node name="Down" type="Area" parent="RigidBody" index="3"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 input_ray_pickable = false
@@ -176,20 +182,20 @@ reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="RigidBody/Down"]
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody/Down" index="0"]
 
 shape = SubResource( 4 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
-[node name="GravityTimer" type="Timer" parent="."]
+[node name="GravityTimer" type="Timer" parent="." index="1"]
 
 process_mode = 0
 wait_time = 0.5
 one_shot = true
 autostart = false
 
-[node name="RespawnTimer" type="Timer" parent="."]
+[node name="RespawnTimer" type="Timer" parent="." index="2"]
 
 process_mode = 0
 wait_time = 1.0

@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/bloxorz.png-23911dc751d30ba06dbcff96857d2bc8.stex"
 
+[deps]
+
+source_md5="2048dfbc421321968faba029a8a7b621"
+
 [params]
 
 compress/mode=0
