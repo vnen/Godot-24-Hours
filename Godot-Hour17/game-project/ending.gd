@@ -4,7 +4,7 @@ const BlockClass = preload("res://block.gd")
 
 func _on_Ending_body_entered( body ):
 	var block = body.get_parent()
-	if block.rest_position == BlockClass.STANDING:
+	if block.rest_position == BlockClass.RestPosition.STANDING:
 		block.won = true
 		$GravityTimer.connect("timeout", self, "_on_GravityTimer_timeout", [ block, body ])
 		$GravityTimer.wait_time = block.movement_duration

@@ -4,6 +4,7 @@
 
 [sub_resource type="CubeMesh" id=1]
 
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector3( 1, 2, 1 )
 subdivide_width = 0
 subdivide_height = 0
