@@ -6,6 +6,8 @@ enum Direction { UP, DOWN, RIGHT, LEFT }
 enum Orientation { PARALLEL, ORTHOGONAL }
 enum RestPosition { STANDING, LYING }
 
+#var foo = PARALLEL
+
 const movement_duration = 0.2;
 
 export (NodePath) var start_point
@@ -18,21 +20,21 @@ var lost = false
 var respawning = false
 
 var rotations = 0
-var orientation = PARALLEL
-var rest_position = STANDING
+var orientation = Orientation.PARALLEL
+var rest_position = RestPosition.STANDING
 
 var right_shift = Vector3(0.5, -1, 0)
 var down_shift = Vector3(0, -1, 0.5)
 
 func _input(event):
 	if event.is_action_pressed("right"):
-		start_turning(RIGHT)
+		start_turning(Direction.RIGHT)
 	elif event.is_action_pressed("down"):
-		start_turning(DOWN)
+		start_turning(Direction.DOWN)
 	elif event.is_action_pressed("left"):
-		start_turning(LEFT)
+		start_turning(Direction.LEFT)
 	elif event.is_action_pressed("up"):
-		start_turning(UP)
+		start_turning(Direction.UP)
 
 func _physics_process(delta):
 	if is_turning:
@@ -40,13 +42,13 @@ func _physics_process(delta):
 		var angle = (PI / 2.0) * step
 		var body = $RigidBody
 		match rotation_direction:
-			RIGHT:
+			Direction.RIGHT:
 				body.transform = body.transform.rotated(Vector3(0, 0, -1), angle)
-			DOWN:
+			Direction.DOWN:
 				body.transform = body.transform.rotated(Vector3(1, 0, 0), angle)
-			LEFT:
+			Direction.LEFT:
 				body.transform = body.transform.rotated(Vector3(0, 0, 1), angle)
-			UP:
+			Direction.UP:
 				body.transform = body.transform.rotated(Vector3(-1, 0, 0), angle)
 
 		interpolation += step
@@ -61,17 +63,17 @@ func start_turning(direction):
 	is_turning = true
 	rotations += 1
 	match direction:
-		RIGHT:
-			rotation_direction = RIGHT
+		Direction.RIGHT:
+			rotation_direction = Direction.RIGHT
 			adjust_transform(right_shift)
-		DOWN:
-			rotation_direction = DOWN
+		Direction.DOWN:
+			rotation_direction = Direction.DOWN
 			adjust_transform(down_shift)
-		LEFT:
-			rotation_direction = LEFT
+		Direction.LEFT:
+			rotation_direction = Direction.LEFT
 			adjust_transform(right_shift * Vector3(-1, 1, 0))
-		UP:
-			rotation_direction = UP
+		Direction.UP:
+			rotation_direction = Direction.UP
 			adjust_transform(down_shift * Vector3(0, 1, -1))
 	adjust_orientation()
 
@@ -80,31 +82,31 @@ func adjust_transform(shift):
 	$RigidBody.translation = -shift
 
 func adjust_orientation():
-	if rest_position == LYING:
+	if rest_position == RestPosition.LYING:
 		match rotation_direction:
-			RIGHT, LEFT:
-				if orientation == PARALLEL:
-					rest_position = STANDING
-			UP, DOWN:
-				if orientation == ORTHOGONAL:
-					rest_position = STANDING
+			Direction.RIGHT, Direction.LEFT:
+				if orientation == Orientation.PARALLEL:
+					rest_position = RestPosition.STANDING
+			Direction.UP, Direction.DOWN:
+				if orientation == Orientation.ORTHOGONAL:
+					rest_position = RestPosition.STANDING
 	else: # if rest_position == STANDING:
-		rest_position = LYING
+		rest_position = RestPosition.LYING
 		match rotation_direction:
-			RIGHT, LEFT:
-				orientation = PARALLEL
-			UP, DOWN:
-				orientation = ORTHOGONAL
+			Direction.RIGHT, Direction.LEFT:
+				orientation = Orientation.PARALLEL
+			Direction.UP, Direction.DOWN:
+				orientation = Orientation.ORTHOGONAL
 
 func update_shifts():
-	if rest_position == STANDING:
+	if rest_position == RestPosition.STANDING:
 		right_shift = Vector3(0.5, -1, 0)
 		down_shift = Vector3(0, -1, 0.5)
 	else: match orientation:
-		PARALLEL:
+		Orientation.PARALLEL:
 			right_shift = Vector3(1, -0.5, 0)
 			down_shift = Vector3(0, -0.5, 0.5)
-		ORTHOGONAL:
+		Orientation.ORTHOGONAL:
 			right_shift = Vector3(0.5, -0.5, 0)
 			down_shift = Vector3(0, -0.5, 1)
 
@@ -124,8 +126,8 @@ func reset_properties():
 	lost = false
 
 	rotations = 0
-	orientation = PARALLEL
-	rest_position = STANDING
+	orientation = Orientation.PARALLEL
+	rest_position = RestPosition.STANDING
 
 	right_shift = Vector3(0.5, -1, 0)
 	down_shift = Vector3(0, -1, 0.5)
